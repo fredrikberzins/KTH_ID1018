@@ -16,5 +16,6 @@ class Cost
         double cost = amount * price;
 
         System.out.println("Total cost: " + cost);
+        in.close();
     }
 }
