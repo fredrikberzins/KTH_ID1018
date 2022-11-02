@@ -21,7 +21,7 @@ class SynonymUser
     public static void main (String[] args) throws IOException
     {
         String[] synonymData = SynonymHandler.readSynonymData(
-			"labb2/SynonymData1.txt");
+			"labb2/SynonymData1.txt");// have changed dir to labb2/SynonymData1.txt from SynonymData1.txt
         println(synonymData);
 
         String synonymLine = SynonymHandler.getSynonymLine(
@@ -45,7 +45,7 @@ class SynonymUser
         println(synonymData);
 
         SynonymHandler.writeSynonymData(synonymData,
-            "labb2/SynonymData2.txt");
+            "labb2/SynonymData2.txt");// have changed dir to labb2/SynonymData2.txt from SynonymData2.txt
     }
 
     public static void println (String[] synonymData)

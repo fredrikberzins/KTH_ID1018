@@ -20,7 +20,7 @@ Author: Fadil Galjic
 ****************************************************************/
 
 import java.io.*;    // FileReader, BufferedReader, PrintWriter,
-                     // IOException
+// IOException
 import java.util.*;  // LinkedList
 
 import javax.xml.transform.Templates;
@@ -124,12 +124,13 @@ class SynonymHandler
 		// add code here =====================
         int lineNr = synonymLineIndex(synonymData, word);
 
-        String[] synData = new String[synonymData.length];
-		for (int i = 0; i < synonymData.length; i++)
+        String[] synData = new String[synonymData.length-1];
+		for (int i = 0, n = 0; i < synonymData.length; i++)
         {
             if (synonymData[i] != synonymData[lineNr])
             {
-                synData[i] = synonymData[i];
+                synData[n] = synonymData[i];
+                n++;
             }
         }
 	    return synData;
@@ -160,12 +161,10 @@ class SynonymHandler
         String replacmentLine = splitString[0] + " | ";
         for (int i = 1; i < splitString.length; i++)
         {
-            int n = 0;
             if (splitString[i] != word)
             {
-                if (n > 1);
+                if (i >= 2)
                     replacmentLine += ", ";
-                n ++;
                 replacmentLine += splitString[i];
             }
         }
@@ -177,9 +176,21 @@ class SynonymHandler
     private static void sortIgnoreCase (String[] strings)
     {
         // add code here =====================
-        System.out.println(strings[0]);
-        for (String string : strings) {
-            System.out.println(string);
+        // changes string[i] to next string
+        for (int i = 0; i < strings.length-1; i++)
+        {
+            // compares string[i] with the other lines
+            for (int n = i + 1; n < strings.length; n++)
+            {   
+                // compares which is first alfabeticly
+                if (strings[i].compareTo(strings[n]) > 0)
+                {
+                    // swaps places so the first alfabetical gets it corect placment
+                    String temporary = strings[i];
+                    strings[i] = strings[n];
+                    strings[n] = temporary;
+                }
+            }
         }
 	}
 
@@ -188,6 +199,22 @@ class SynonymHandler
     private static String sortSynonymLine (String synonymLine)
     {
 	    // add code here =====================
+        String[] splitString = synonymLine.split("( \\| )|(, )", 0);
+        String replacmentLine = splitString[0] + " | ";
+
+        String[] wordArray = new String[splitString.length - 1];
+        for (int n = 1; n < splitString.length; n++)
+        {
+            wordArray[n-1] = splitString[n];        
+        }
+        Arrays.sort(wordArray);
+        for (int n = 0; n < wordArray.length; n++)
+        {
+            if (n >= 1)
+                replacmentLine += ", ";
+            replacmentLine += wordArray[n];
+        }
+        return replacmentLine;
 	}
 
     // sortSynonymData accepts synonym data, and sorts its
@@ -195,18 +222,11 @@ class SynonymHandler
 	public static void sortSynonymData (String[] synonymData)
 	{
         // add code here =====================
-        
         for (int i = 0; i < synonymData.length; i++)
         {
-            String[] tempSplitString = synonymData[i].split("( \\| )|(, )", 0);
-            String[] unitedString = new String[tempSplitString.length - 1];
-            for (int n = 1; n < tempSplitString.length; n++)
-            {
-                unitedString[n-1] = tempSplitString[n];        
-            }
-            sortIgnoreCase(unitedString);
-            synonymData[i] = 
+            String sortedLine = sortSynonymLine(synonymData[i]);
+            synonymData[i] = sortedLine;
         }
-        
+        sortIgnoreCase(synonymData);
 	}
 }
