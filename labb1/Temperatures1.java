@@ -119,23 +119,17 @@ class Temperatures1
 		double avgTemp = 0;
         
 		// add code here
-		minTemp = t[1][1];
-		maxTemp = t[1][1];
-		sumTemp = 0;
-		avgTemp = 0;
-		for(int weekNr = 1; weekNr <= nofWeeks; weekNr++)
+		minTemp = minT[1];
+		maxTemp = maxT[1];
+		for(int weekNr = 2; weekNr <= nofWeeks; weekNr++)
 		{
-			for(int temperature = 1; temperature <= nofMeasurementsPerWeek; temperature++)
-			{
-				if (t[weekNr][temperature] < minTemp) {
-					minTemp = t[weekNr][temperature];
-				}
-				if (t[weekNr][temperature] > maxTemp) {
-					maxTemp = t[weekNr][temperature];
-				}
-				sumTemp += t[weekNr][temperature];
+			if (minT[weekNr] < minTemp) {
+				minTemp = minT[weekNr];
 			}
-
+			if (maxT[weekNr] > maxTemp) {
+				maxTemp = maxT[weekNr];
+			}
+			sumTemp += sumT[weekNr];
 		}
 		avgTemp = sumTemp/(nofWeeks*nofMeasurementsPerWeek);
 

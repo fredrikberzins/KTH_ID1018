@@ -132,7 +132,7 @@ class Temperatures2
 	{
 		// add code here
 		double rollingLowest = temp[1];
-		for (int temperature = 1; temperature < temp.length; temperature++)
+		for (int temperature = 2; temperature < temp.length; temperature++)
 		{
 			if (temp[temperature] < rollingLowest) {
 				rollingLowest = temp[temperature];
@@ -147,7 +147,7 @@ class Temperatures2
 	{
 		// add code here
 		double rollingHigest = temp[1];
-		for (int temperature = 1; temperature < temp.length; temperature++)
+		for (int temperature = 2; temperature < temp.length; temperature++)
 		{
 			if (temp[temperature] > rollingHigest) {
 				rollingHigest = temp[temperature];
