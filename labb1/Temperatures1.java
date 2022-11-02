@@ -144,5 +144,7 @@ class Temperatures1
 		out.println("the least, greatest and average temperature"
 		    + " - whole period");
         out.println(minTemp + "\n" + maxTemp + "\n" + avgTemp);
+
+		in.close();
     }
 }
