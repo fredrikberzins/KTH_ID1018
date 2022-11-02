@@ -1,4 +1,4 @@
-package labb1_DONE;
+package labb1;
 // Temperatures1.java
 
 // proccessing measurement data
