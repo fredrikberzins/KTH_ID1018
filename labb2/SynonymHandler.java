@@ -121,7 +121,7 @@ class SynonymHandler
 	public static String[] removeSynonymLine (String[] synonymData,
 	    String word)
 	{
-		// add code here =====================
+		// add code here
         int lineNr = synonymLineIndex(synonymData, word);
 
         String[] synData = new String[synonymData.length-1];
@@ -143,8 +143,8 @@ class SynonymHandler
 	public static void addSynonym (String[] synonymData,
 	    String word, String synonym)
 	{
-        // add code here =====================
-        synonymData[synonymLineIndex(synonymData, word)] += ", " + word;
+        // add code here
+        synonymData[synonymLineIndex(synonymData, word)] += ", " + synonym;
 	}
 
     // removeSynonym accepts synonym data, and removes a given
@@ -154,7 +154,7 @@ class SynonymHandler
 	public static void removeSynonym (String[] synonymData,
 	    String word, String synonym)
 	{
-        // add code here =====================
+        // add code here
         String line = synonymData[synonymLineIndex(synonymData, word)];
         //String line = "beautiful | lovely, pretty, pleasing, graceful, appealing, charming";
         String[] splitString = line.split("( \\| )|(, )", 0);
@@ -175,7 +175,7 @@ class SynonymHandler
     // the selection sort algorithm
     private static void sortIgnoreCase (String[] strings)
     {
-        // add code here =====================
+        // add code here
         // changes string[i] to next string
         for (int i = 0; i < strings.length-1; i++)
         {
@@ -198,7 +198,7 @@ class SynonymHandler
     // the synonyms in this line
     private static String sortSynonymLine (String synonymLine)
     {
-	    // add code here =====================
+	    // add code here
         String[] splitString = synonymLine.split("( \\| )|(, )", 0);
         String replacmentLine = splitString[0] + " | ";
 
@@ -221,7 +221,7 @@ class SynonymHandler
     // synonym lines and the synonyms in these lines
 	public static void sortSynonymData (String[] synonymData)
 	{
-        // add code here =====================
+        // add code here
         for (int i = 0; i < synonymData.length; i++)
         {
             String sortedLine = sortSynonymLine(synonymData[i]);
