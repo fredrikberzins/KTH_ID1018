@@ -60,4 +60,76 @@ public class LinkedNumberSequence implements NumberSequence
 	}
 
     // add code here
+	// length returns the node length of this sequence
+	public int length ()
+	{
+		Node n = first;
+		int l = 1;
+		while (n.next != null)
+		{
+			l++;
+			n = n.next;
+		}
+		return l;
+	}
+
+	// upperBound returns the highest number of this sequence
+	public double upperBound ()
+	{
+		Node n = first;
+		double upperHighest = n.number;
+		while (n.next != null)
+		{
+			if (n.next.number > upperHighest)
+			{
+				upperHighest = n.next.number;
+			}
+			n = n.next;
+		}
+		return upperHighest;
+	}
+
+	// lowerBound returns the lowest number of this sequence
+	public double lowerBound ()
+	{
+		Node n = first;
+		double lowestNumber = n.number;
+		while (n.next != null)
+		{
+			if (n.next.number < lowestNumber)
+			{
+				lowestNumber = n.next.number;
+			}
+			n = n.next;
+		}
+		return lowestNumber;
+	}
+
+	public double numberAt (int position)
+	{
+		Node n = first;
+		for (int i = 0; i < position; i++)
+		{
+			n = n.next;
+		}
+		return n.number;
+	}
+
+	public int positionOf (double number)
+	{
+		Node n = first;
+		int index = 0;
+		while (n.next != null)
+		{
+			if (n.number == number)
+			{
+				break;
+			}
+			index++;
+			n = n.next;
+		}
+		return index;
+	}
+
+	boolean isIncreasing ();
 }

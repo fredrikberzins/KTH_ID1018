@@ -26,5 +26,32 @@ class NumberSequenceTest
         out.println();
 
         // add code here
+        out.println("length: " + sequence.length());
+        out.println("one upper bound: " + sequence.upperBound());
+        out.println("one lower bound: " + sequence.lowerBound());
+        out.println();
+
+        int position = 4;
+        int value = 8;
+        out.println("number at position " + position + ": " +  sequence.numberAt(position));
+        out.println("position of " + value +": " + sequence.positionOf(value));
+        out.println();
+        /*
+        out.println("is inceasing: " + BOOL);
+        out.println("is deceasing: " + BOOL);
+        out.println("contains " + VALUE + ": " + BOOL);
+        out.println();
+
+        out.println("add: " + VALUE + ":");
+        out.println(ARRAY);
+        out.println("insert " + VALUE + " at position" + POSITION + ":");
+        out.println(ARRAY);
+        out.println("remove at position " + POSITION + ":");
+        out.println(ARRAY);
+        out.println();
+
+        out.println("corresponding array: ");
+        out.println(ARRAY);
+        */
     }
 }
