@@ -31,27 +31,38 @@ class NumberSequenceTest
         out.println("one lower bound: " + sequence.lowerBound());
         out.println();
 
-        int position = 4;
-        int value = 8;
-        out.println("number at position " + position + ": " +  sequence.numberAt(position));
-        out.println("position of " + value +": " + sequence.positionOf(value));
-        out.println();
-        /*
-        out.println("is inceasing: " + BOOL);
-        out.println("is deceasing: " + BOOL);
-        out.println("contains " + VALUE + ": " + BOOL);
+        int positionPlace = 4;
+        double positionValue = 8;
+        out.println("number at position " + positionPlace + ": " +  sequence.numberAt(positionPlace));
+        out.println("position of " + positionValue +": " + sequence.positionOf(positionValue));
         out.println();
 
-        out.println("add: " + VALUE + ":");
-        out.println(ARRAY);
-        out.println("insert " + VALUE + " at position" + POSITION + ":");
-        out.println(ARRAY);
-        out.println("remove at position " + POSITION + ":");
-        out.println(ARRAY);
+        double containsValue = 21;
+        out.println("is inceasing: " + sequence.isIncreasing());
+        out.println("is deceasing: " + sequence.isDecreasing());
+        out.println("contains " + containsValue + ": " + sequence.contains(containsValue));
+        out.println();
+
+        double addValue = 34;
+        out.println("add: " + addValue + ":");
+        sequence.add(addValue);
+        out.println(sequence.toString());
+        
+        int inserPlace = 7;
+        double insertValue = 0.0;
+        out.println("insert " + insertValue + " at position " + inserPlace + ":");
+        sequence.insert(inserPlace, insertValue);
+        out.println(sequence.toString());
+        
+        int removePlace = 7;
+        out.println("remove at position " + removePlace + ":");
+        sequence.removeAt(removePlace);
+        out.println(sequence.toString());
         out.println();
 
         out.println("corresponding array: ");
-        out.println(ARRAY);
-        */
+        double[] sequenceArray = sequence.asArray();
+        for (int i = 0; i < sequenceArray.length ; i++)
+            out.print(sequenceArray[i] + " ");
     }
 }
