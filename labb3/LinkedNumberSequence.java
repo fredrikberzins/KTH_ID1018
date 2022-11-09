@@ -62,14 +62,10 @@ public class LinkedNumberSequence implements NumberSequence
     // add code here
 	// length returns the node length of this sequence
 	public int length ()
-	{
-		Node n = first;
-		int length = 0;
-		while (n != null)
-		{
-			length++;
-			n = n.next;
-		}
+	{	
+		int length = 1;
+		for(Node n = first; n.next != null; n = n.next)
+			length++;     
 		return length;
 	}
 
@@ -107,8 +103,15 @@ public class LinkedNumberSequence implements NumberSequence
 
 	public double numberAt (int position)
 	{
+		int length = 1;
+		for(Node n = first; n.next != null; n = n.next)
+			length++;   
+		if (position > length)
+			throw new IndexOutOfBoundsException("Position is out of bounds. Position: " + position + " Max position: " + length);
+
 		Node n = first;
-		for (int i = 0; i < position; i++)
+
+		for (int i = 0; i < length-1 ; i++)
 		{
 			n = n.next;
 		}
@@ -192,7 +195,15 @@ public class LinkedNumberSequence implements NumberSequence
 
 	public void insert (int position, double number)
 	{
+		int length = 1;
+		for(Node n = first; n.next != null; n = n.next)
+			length++;   
+		if (position > length)
+			throw new IndexOutOfBoundsException("Position is out of bounds. Position: " + position + " Max position: " + length);
+
+
 		Node n = first;
+
 		for (int i = 1; i < position; i++)
 		{
 			n = n.next;
@@ -214,6 +225,14 @@ public class LinkedNumberSequence implements NumberSequence
 
 	public void removeAt (int position)
 	{
+		int length = 1;
+		for(Node n = first; n.next != null; n = n.next)
+			length++;  
+		if (position  >  length)
+			throw new IndexOutOfBoundsException("Position is out of bounds. Position: " + position + " Max position: " + length);
+		if (length == 2)
+			throw new IllegalStateException("Sequence to short, removal will not make it a sequence any more");
+
 		Node n = first;
 		for (int i = 0; i < position; i++)
 		{
