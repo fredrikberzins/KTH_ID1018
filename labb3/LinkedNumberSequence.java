@@ -111,7 +111,7 @@ public class LinkedNumberSequence implements NumberSequence
 
 		Node n = first;
 
-		for (int i = 0; i < length-1 ; i++)
+		for (int i = 0; i < position ; i++)
 		{
 			n = n.next;
 		}
